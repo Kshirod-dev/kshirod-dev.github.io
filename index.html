@@ -1,35 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Kshirod Services</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshirod | Web Developer</title>
+
     <style>
         body {
-            font-family: Arial;
             margin: 0;
-            background: #111;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
             color: white;
             text-align: center;
         }
+
         header {
-            background: #00adb5;
-            padding: 20px;
+            padding: 60px 20px;
         }
-        section {
-            padding: 20px;
+
+        h1 {
+            font-size: 40px;
         }
-        .card {
-            background: #222;
-            margin: 10px;
-            padding: 15px;
-            border-radius: 10px;
+
+        p {
+            font-size: 18px;
+            color: #cbd5e1;
         }
-        button {
-            background: #00adb5;
-            border: none;
-            padding: 10px 20px;
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #3b82f6;
             color: white;
-            border-radius: 5px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        input {
+            border-radius: 6px;
+            border: none;
         }
     </style>
 </head>
@@ -37,34 +62,71 @@
 <body>
 
 <header>
-    <h1>Kshirod Services</h1>
-    <p>Web Developer | Printing Specialist | Designer</p>
+    <h1>Hi, I'm Kshirod 👋</h1>
+    <p>I create modern websites, applications, design premium wedding invitations & provide digital services</p>
+    <a href="#contact" class="btn">Hire Me</a>
 </header>
-
-<section>
-    <h2>About Me</h2>
-    <p>I provide website development, app building, printing services, and invitation card designing.</p>
-</section>
 
 <section>
     <h2>My Services</h2>
 
-    <div class="card">🌐 Website Development</div>
-    <div class="card">📱 App Development</div>
-    <div class="card">🖨️ Printing (Color & B/W)</div>
-    <div class="card">🎨 Invitation Card Design</div>
-    <div class="card">💻 CSE Projects Help</div>
-
+    <div class="card">🌐 Website Development for Portfolio/Buiseness Sites</div>
+    <div class="card">💌 Wedding Card Printing & Design (All Types), Poster, Logo & Digital Design</div>
+    <div class="card">📱 Basic App & Project Development</div>
 </section>
 
+<!-- 🔥 Other Digital Work Section -->
 <section>
-    <h2>Contact Me</h2>
-    <p>Click below to hire me 👇</p>
-    
-    <a href="https://wa.me/91XXXXXXXXXX">
-        <button>WhatsApp Me</button>
-    </a>
+    <h2>Other Digital Work</h2>
+
+    <div class="card">
+        <input type="text" id="workType" placeholder="Enter type of work (Professional PPT/Project reports, Logo, Poster, Resume, Banner etc)" style="padding:10px;width:80%;margin:10px;"><br>
+        
+        <input type="file" id="fileUpload" style="margin:10px;"><br>
+
+        <button class="btn" onclick="sendWork()">Send on WhatsApp</button>
+    </div>
 </section>
+
+<!-- 🔥 Printing Section -->
+<section>
+    <h2>Printing Service</h2>
+
+    <div class="card">
+        <input type="file" id="printFile" style="margin:10px;"><br>
+
+        <input type="number" id="copies" placeholder="Enter Number of copies (e.g. 100)" style="padding:10px;width:80%;margin:10px;"><br>
+
+        <button class="btn" onclick="sendPrint()">Send Print Request</button>
+    </div>
+</section>
+
+<!-- 📞 Contact Section -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    
+    <a href="https://wa.me/918637223653" class="btn">Chat on WhatsApp</a>
+    
+    <p>📍 Bhubaneswar, India</p>
+</section>
+
+<script>
+function sendWork() {
+    let type = document.getElementById("workType").value;
+
+    let message = `Hello, I need this work:\nType: ${type}\n(I will attach file here)`;
+
+    window.open(`https://wa.me/918637223653?text=${encodeURIComponent(message)}`);
+}
+
+function sendPrint() {
+    let copies = document.getElementById("copies").value;
+
+    let message = `Hello, I need printing service:\nCopies: ${copies}\n(I will attach file here)`;
+
+    window.open(`https://wa.me/918637223653?text=${encodeURIComponent(message)}`);
+}
+</script>
 
 </body>
 </html>

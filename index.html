@@ -40,6 +40,8 @@ p {
     color: white;
     text-decoration: none;
     transition: 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -153,16 +155,20 @@ function sendPrint() {
     window.open(`https://wa.me/918637223653?text=${encodeURIComponent(msg)}`);
 }
 
-/* FADE-IN ON SCROLL */
+/* FIXED ANIMATION */
 const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
+
+function showElements() {
     faders.forEach(el => {
         const rect = el.getBoundingClientRect().top;
         if (rect < window.innerHeight - 50) {
             el.classList.add('show');
         }
     });
-});
+}
+
+window.addEventListener('scroll', showElements);
+window.addEventListener('load', showElements);
 </script>
 
 </body>

@@ -3,172 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kshirod | Developer</title>
+<title>Kshirod | Developer & Digital Solutions</title>
 
 <style>
+/* 🌌 HIGH-TECH DYNAMIC BACKGROUND */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #020617; /* Deep Midnight */
     color: white;
     text-align: center;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* HERO */
+/* GLOWING ORBS EFFECT */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    width: 80vw;
+    height: 80vw;
+    border-radius: 50%;
+    z-index: -2;
+    filter: blur(100px);
+    animation: floatOrb 15s infinite alternate ease-in-out;
+    opacity: 0.25;
+}
+
+body::before {
+    background: radial-gradient(circle, #06b6d4, #3b82f6);
+    top: -20%;
+    left: -30%;
+}
+
+body::after {
+    background: radial-gradient(circle, #8b5cf6, #ec4899);
+    bottom: -20%;
+    right: -30%;
+    animation-delay: -7s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20vw, 15vh) scale(1.1); }
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+/* ✨ HERO SECTION */
 header {
-    padding: 80px 20px;
+    padding: 100px 20px 40px;
 }
 
 h1 {
-    font-size: 42px;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    font-size: clamp(32px, 8vw, 50px);
+    margin: 0;
+    background: linear-gradient(90deg, #22d3ee, #818cf8);
     -webkit-background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 
-p {
+.subtitle {
     color: #94a3b8;
+    font-size: 1.1rem;
+    margin-top: 10px;
 }
 
-/* BUTTON */
+/* 💎 GLASS-MORPHISM CARDS */
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #f8fafc;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    margin: 15px auto;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(22, 190, 255, 0.4);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+}
+
+/* 📲 INTERACTIVE ELEMENTS */
+input, select {
+    padding: 12px;
+    width: 85%;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background: rgba(15, 23, 42, 0.8);
+    color: white;
+    outline: none;
+}
+
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 28px;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    margin-top: 15px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
     color: white;
     text-decoration: none;
-    transition: 0.3s;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
 }
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px #3b82f6;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
 }
 
-/* SECTIONS */
-section {
-    padding: 60px 20px;
-}
-
-/* CARDS */
-.card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    margin: 15px auto;
-    padding: 20px;
-    border-radius: 15px;
-    width: 85%;
-    max-width: 400px;
-    transition: 0.3s;
-    cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(59,130,246,0.5);
-}
-
-/* INPUT */
-input {
-    padding: 10px;
-    width: 80%;
-    margin: 10px;
-    border-radius: 8px;
-    border: none;
-}
-
-/* FADE ANIMATION */
+/* 🎬 FADE IN ANIMATION */
 .fade {
     opacity: 0;
-    transform: translateY(20px);
-    transition: 0.6s;
+    transform: translateY(30px);
+    transition: 1s ease-out;
 }
 
 .fade.show {
     opacity: 1;
     transform: translateY(0);
 }
+
+footer {
+    padding: 40px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
 </style>
 </head>
 
 <body>
 
+<div id="particles-js"></div>
+
 <header class="fade">
     <h1>Hi, I'm Kshirod 👋</h1>
-    <p>I build modern websites & digital solutions</p>
-    <a href="#contact" class="btn">Hire Me</a>
+    <p class="subtitle">Software Developer & Digital Solutions Expert</p>
+    <a href="#contact" class="btn">Start a Project</a>
 </header>
 
 <section class="fade">
-    <h2>My Services</h2>
-
-    <div class="card" onclick="scrollToContact()">🌐 Website Development</div>
-    <div class="card" onclick="scrollToContact()">💌 Wedding Card Printing & Design</div>
-    <div class="card" onclick="scrollToContact()">🎨 Logo, Poster & Digital Work</div>
+    <h2>Core Services</h2>
+    <div class="card" onclick="scrollToContact()">🌐 Full-Stack Web Development</div>
+    <div class="card" onclick="scrollToContact()">📱 Android App Development (Kotlin/Java)</div>
+    <div class="card" onclick="scrollToContact()">💌 Premium Wedding & Invitation Design</div>
 </section>
 
 <section class="fade">
-    <h2>Other Digital Work</h2>
-
-    <div class="card" style="cursor:default;">
-        <input type="text" id="workType" placeholder="Type your work"><br>
-        <input type="file"><br>
-        <button class="btn" onclick="sendWork()">Send on WhatsApp</button>
+    <h2>Custom Digital Work</h2>
+    <div class="card">
+        <p>Need a Logo, Poster, or specific CSE project help?</p>
+        <input type="text" id="workType" placeholder="Describe the work (e.g. 'ML Spam Classifier')">
+        <button class="btn" onclick="sendWork()">Request Details via WhatsApp</button>
     </div>
 </section>
 
 <section class="fade">
-    <h2>Printing Service</h2>
-
-    <div class="card" style="cursor:default;">
-        <input type="file"><br>
-        <input type="number" id="copies" placeholder="Copies needed"><br>
-        <button class="btn" onclick="sendPrint()">Send Request</button>
+    <h2>Printing Services</h2>
+    <div class="card">
+        <p>Fast Printing & Document Delivery</p>
+        <input type="number" id="copies" placeholder="Number of copies">
+        <select id="printType">
+            <option value="B&W">Black & White</option>
+            <option value="Color">Full Color</option>
+        </select>
+        <button class="btn" onclick="sendPrint()">Submit Print Order</button>
     </div>
 </section>
 
-<section id="contact" class="fade">
-    <h2>Contact Me</h2>
-    <a href="https://wa.me/918637223653" class="btn">Chat on WhatsApp</a>
-    <p>📍 Bhubaneswar, India</p>
+<section id="contact" class="fade" style="padding-bottom: 80px;">
+    <h2>Get In Touch</h2>
+    <div class="card" style="max-width: 300px; margin: auto;">
+        <p>Direct Chat</p>
+        <a href="https://wa.me/918637223653" class="btn">WhatsApp Now</a>
+    </div>
+    <p style="margin-top: 30px;">📍 Bhubaneswar, Odisha</p>
 </section>
+
+<footer>
+    &copy; 2026 Kshirod-Dev. Built with Passion.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
-function scrollToContact() {
-    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-}
+// ⚛️ PARTICLES CONFIGURATION
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 800 } },
+    color: { value: "#ffffff" },
+    opacity: { value: 0.2 },
+    size: { value: 2 },
+    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.1, width: 1 },
+    move: { enable: true, speed: 1.5 }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
+    modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+  }
+});
+
+// 📱 WHATSAPP LOGIC
+const MY_NUMBER = "918637223653";
 
 function sendWork() {
     let type = document.getElementById("workType").value;
-    let msg = `Hello, I need this work:\nType: ${type}\nI will send file after this.`;
-    window.open(`https://wa.me/918637223653?text=${encodeURIComponent(msg)}`);
+    if(!type) { alert("Please describe the work!"); return; }
+    let msg = `*New Project Request*\n------------------\n*Work:* ${type}\n\n_Sent via kshirod-dev.github.io_`;
+    window.open(`https://wa.me/${MY_NUMBER}?text=${encodeURIComponent(msg)}`);
 }
 
 function sendPrint() {
     let copies = document.getElementById("copies").value;
-    let msg = `Hello, I need printing service:\nCopies: ${copies}\nI will send file after this.`;
-    window.open(`https://wa.me/918637223653?text=${encodeURIComponent(msg)}`);
+    let type = document.getElementById("printType").value;
+    if(!copies) { alert("Please enter copies!"); return; }
+    let msg = `*Printing Order*\n------------------\n*Copies:* ${copies}\n*Type:* ${type}\n\n_I am sending the file below this message._`;
+    window.open(`https://wa.me/${MY_NUMBER}?text=${encodeURIComponent(msg)}`);
 }
 
-/* FIXED ANIMATION */
+function scrollToContact() {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+}
+
+// ✨ SCROLL ANIMATION
 const faders = document.querySelectorAll('.fade');
+const appearOptions = { threshold: 0.2 };
 
-function showElements() {
-    faders.forEach(el => {
-        const rect = el.getBoundingClientRect().top;
-        if (rect < window.innerHeight - 50) {
-            el.classList.add('show');
-        }
-    });
-}
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('show');
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
 
-window.addEventListener('scroll', showElements);
-window.addEventListener('load', showElements);
+faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
 
 </body>
